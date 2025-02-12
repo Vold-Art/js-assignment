@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Global Styles */
+
+:root {
+	--primary-font: "Roboto", sans-serif;
+	--secondary-font: "Bebas Neue", sans-serif;
+	--primary-color: #0a3641;
+	--secondary-color: #f89235;
+	--background-color: #f1f1e6;
+	--text-color: #0a3641;
+	--font-family: "Arial", sans-serif;
+}
+
+body {
+	font-family: var(--primary-font), var(--secondary-font);
+	color: var(--text-color);
+	background-color: var(--background-color);
+	margin: 0;
+	padding: 0;
+}
+
+/* Header */
+
+header {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	height: 100px;
+	background: var(--primary-color);
+}
+
+.nav-logo {
+	width: 120px;
+}
+
+nav {
+	font-size: 2.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 23.664px 50px 23.664px 50px;
+}
+
+#shopping-cart {
+	color: var(--background-color);
+}
+
+/* Hero Section */
+
+.hero-section {
+	position: relative;
+	height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#hero-img {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	object-position: 100% 70%;
+}
+
+.hero-section:before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: rgba(62, 101, 113, 0.5);
+	z-index: 99;
+}
+
+#hero-logo {
+	position: absolute;
+	width: 350px;
+	height: auto;
+	z-index: 999;
+}
+
+/* Footer */
+
+footer {
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background: var(--primary-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-icons {
+	font-size: 2.5rem;
+	display: flex;
+	flex-direction: row;
+	gap: clamp(10px, 10vw, 100px);
+	color: var(--background-color);
+}

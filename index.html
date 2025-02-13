@@ -12,7 +12,7 @@
 			src="https://kit.fontawesome.com/0c6f9a3b2b.js"
 			crossorigin="anonymous"
 		></script>
-		<link rel="stylesheet" href="./css/styles.css" />
+		<link rel="stylesheet" href="./css/index.css" />
 	</head>
 	<body>
 		<header>
@@ -44,7 +44,27 @@
 				id="hero-logo"
 			/>
 		</section>
-		<br />
+		<section class="filter-bar">
+			<label for="gender">Gender:</label>
+			<select id="gender">
+				<option value="all">All</option>
+				<option value="men">Men</option>
+				<option value="women">Women</option>
+				<option value="unisex">Unisex</option>
+			</select>
+
+			<label for="size">Size:</label>
+			<select id="size">
+				<option value="all">All</option>
+				<option value="S">Small</option>
+				<option value="M">Medium</option>
+				<option value="L">Large</option>
+				<option value="XL">XL</option>
+			</select>
+		</section>
+		<section class="product-section">
+			<div id="product-list"></div>
+		</section>
 		<footer>
 			<ul class="footer-icons">
 				<li><i class="fa-brands fa-facebook" id="facebook"></i></li>

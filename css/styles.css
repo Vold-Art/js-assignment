@@ -48,39 +48,6 @@ nav {
 	color: var(--background-color);
 }
 
-/* Hero Section */
-
-.hero-section {
-	position: relative;
-	height: 250px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#hero-img {
-	width: 100%;
-	height: 250px;
-	object-fit: cover;
-	object-position: 100% 70%;
-}
-
-.hero-section:before {
-	content: "";
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background: rgba(62, 101, 113, 0.5);
-	z-index: 9;
-}
-
-#hero-logo {
-	position: absolute;
-	width: 350px;
-	height: auto;
-	z-index: 99;
-}
-
 /* Footer */
 
 footer {

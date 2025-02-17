@@ -45,3 +45,40 @@ function displayProduct(product) {
 }
 
 fetchProduct();
+
+const sizeButtons = document.querySelectorAll(".size-btn input");
+
+if (sizeButtons.length > 0) {
+	sizeButtons.forEach((button) => {
+		button.addEventListener("change", (event) => {
+			selectedSize = product.sizes.value;
+			console.log("Selected Size:", selectedSize);
+		});
+	});
+} else {
+	console.log("No sizes");
+}
+
+// const sizeInput = document.querySelectorAll('input[name="size"]');
+// const addToCartButton = document.querySelector(".btn");
+
+// addToCartButton.disabled = false;
+
+// sizeInput.forEach((input) => {
+// 	input.addEventListener("change", function () {
+// 		addToCartButton.disabled = false;
+// 	});
+// });
+
+// addToCartButton.addEventListener("click", function () {
+// 	const sizeSelect = document.querySelector(
+// 		'input[name="size"]:checked'
+// 	)?.value;
+
+// 	if (!sizeSelect) {
+// 		alert("Please select a size");
+// 		return;
+// 	}
+
+// 	console.log("Size:", sizeSelect);
+// });

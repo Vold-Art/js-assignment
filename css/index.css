@@ -76,6 +76,10 @@
 	box-shadow: 4px 4px 10px rgba(10, 54, 65, 0.5);
 }
 
+.product-card p {
+	font-size: 1.2rem;
+}
+
 .product-card img {
 	max-height: 200px;
 	object-fit: cover;
@@ -89,4 +93,9 @@
 	color: white;
 	text-decoration: none;
 	border-radius: 15px;
+	font-size: 1.2rem;
+}
+
+.btn:hover {
+	background: var(--secondary-color);
 }

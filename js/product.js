@@ -39,46 +39,50 @@ function displayProduct(product) {
             <p><strong>Gender:</strong> ${product.gender}</p>
             <p><strong>Sizes:</strong></p>
             <div class="size-options">${sizesHTML}</div>
-            <button class="btn">Add to Cart</button>
+            <button class="btn" id="add-to-cart" disabled>Add to Cart</button>
         </div>
     `;
+
+	// Selecting size and enabling the button
+	let selectedSize = null;
+	const sizeButtons = document.querySelectorAll(".size-btn input");
+	const addToCartButton = document.getElementById("add-to-cart");
+
+	sizeButtons.forEach((button) => {
+		button.addEventListener("change", (event) => {
+			selectedSize = event.target.value;
+			console.log("Selected Size:", selectedSize);
+			addToCartButton.disabled = false; // Enable button when size is selected
+		});
+	});
+
+	// Handling Add to Cart
+	addToCartButton.addEventListener("click", function () {
+		if (!selectedSize) {
+			alert("Please select a size before adding to cart.");
+			return;
+		}
+
+		// Create cart item object
+		const cartItem = {
+			id: product.id,
+			title: product.title,
+			size: selectedSize,
+			price: product.price,
+			image: product.image.url,
+		};
+
+		// Get cart from localStorage or create an empty array
+		const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+		// Add new item to cart
+		cart.push(cartItem);
+
+		// Save updated cart back to localStorage
+		localStorage.setItem("cart", JSON.stringify(cart));
+
+		alert(`${product.title} (Size: ${selectedSize}) added to cart!`);
+	});
 }
 
 fetchProduct();
-
-const sizeButtons = document.querySelectorAll(".size-btn input");
-
-if (sizeButtons.length > 0) {
-	sizeButtons.forEach((button) => {
-		button.addEventListener("change", (event) => {
-			selectedSize = product.sizes.value;
-			console.log("Selected Size:", selectedSize);
-		});
-	});
-} else {
-	console.log("No sizes");
-}
-
-// const sizeInput = document.querySelectorAll('input[name="size"]');
-// const addToCartButton = document.querySelector(".btn");
-
-// addToCartButton.disabled = false;
-
-// sizeInput.forEach((input) => {
-// 	input.addEventListener("change", function () {
-// 		addToCartButton.disabled = false;
-// 	});
-// });
-
-// addToCartButton.addEventListener("click", function () {
-// 	const sizeSelect = document.querySelector(
-// 		'input[name="size"]:checked'
-// 	)?.value;
-
-// 	if (!sizeSelect) {
-// 		alert("Please select a size");
-// 		return;
-// 	}
-
-// 	console.log("Size:", sizeSelect);
-// });

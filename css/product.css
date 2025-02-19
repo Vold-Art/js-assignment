@@ -60,6 +60,11 @@
 	background: var(--secondary-color);
 }
 
+.size-btn.selected {
+	background: var(--secondary-color);
+	color: white;
+}
+
 .btn {
 	padding: 15px 30px;
 	border-radius: 15px;

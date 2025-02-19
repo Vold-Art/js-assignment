@@ -1,17 +1,12 @@
-let allProducts = []; // Global variable to store all products
+import { updateCart } from "./cart.js";
+import { fetchProducts, allProducts } from "./api.js";
 
-// Fetch products from API
-async function fetchProducts() {
-	try {
-		const response = await fetch("https://v2.api.noroff.dev/rainy-days");
-		const jsonData = await response.json();
-		console.log("Fetched Data:", jsonData); // Console.log fetched data !REMOVE BEFORE SUBMISSION!
-		allProducts = jsonData.data; // Store API data globally
-		displayProducts(allProducts); // Display all products initially
-	} catch (error) {
-		console.error("Error fetching products:", error);
-	}
+async function init() {
+	await fetchProducts(displayProducts); // Fetch and display products
+	console.log("Products available:", allProducts); // Check if products are fetched
 }
+
+init();
 
 /* Index Page */
 
@@ -69,3 +64,6 @@ document.getElementById("size").addEventListener("change", filterProducts);
 
 // Fetch products when page loads
 fetchProducts();
+
+// Listen for cart updates and refresh the cart count
+window.addEventListener("cartUpdated", updateCart);

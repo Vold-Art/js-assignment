@@ -1,3 +1,5 @@
+import { updateCart } from "./cart.js";
+
 // Function to get cart items from localStorage
 function getCartItems() {
 	return JSON.parse(localStorage.getItem("cart")) || [];

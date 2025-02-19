@@ -72,3 +72,26 @@ ul {
 	gap: clamp(10px, 10vw, 100px);
 	color: var(--background-color);
 }
+
+/* Shopping Cart Counter */
+
+.cart-icon {
+	position: relative;
+	display: inline-block;
+}
+
+#cart-count {
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	background: var(--secondary-color);
+	color: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

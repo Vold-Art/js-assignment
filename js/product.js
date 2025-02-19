@@ -1,22 +1,12 @@
+import { updateCart } from "./cart.js";
+import { fetchProductById } from "./api.js";
+
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
 
-async function fetchProduct() {
-	try {
-		const response = await fetch(
-			`https://v2.api.noroff.dev/rainy-days/${productId}`
-		);
-		const jsonData = await response.json();
-		console.log("Fetched Product:", jsonData); //!REMOVE BEFORE SUBMISSION!
-		displayProduct(jsonData.data);
-	} catch (error) {
-		console.error("Error fetching product:", error);
-	}
-}
-
+// Function to display product details
 function displayProduct(product) {
 	document.title = product.title;
-
 	const productContainer = document.getElementById("product-container");
 
 	let sizesHTML = product.sizes
@@ -45,14 +35,22 @@ function displayProduct(product) {
 
 	// Selecting size and enabling the button
 	let selectedSize = null;
-	const sizeButtons = document.querySelectorAll(".size-btn input");
-	const addToCartButton = document.getElementById("add-to-cart");
+	const sizeButtons = document.querySelectorAll(".size-btn");
 
 	sizeButtons.forEach((button) => {
-		button.addEventListener("change", (event) => {
-			selectedSize = event.target.value;
+		button.addEventListener("click", (event) => {
+			// Remove 'selected' class from all buttons
+			sizeButtons.forEach((btn) => btn.classList.remove("selected"));
+
+			// Add 'selected' class to the clicked button
+			button.classList.add("selected");
+
+			// Get the selected size value
+			selectedSize = button.querySelector("input").value;
 			console.log("Selected Size:", selectedSize);
-			addToCartButton.disabled = false; // Enable button when size is selected
+
+			// Enable the add to cart button
+			document.getElementById("add-to-cart").disabled = false;
 		});
 	});
 
@@ -81,8 +79,29 @@ function displayProduct(product) {
 		// Save updated cart back to localStorage
 		localStorage.setItem("cart", JSON.stringify(cart));
 
+		// Update cart count in the header
+		updateCart();
+
 		alert(`${product.title} (Size: ${selectedSize}) added to cart!`);
 	});
 }
 
-fetchProduct();
+// Initialize the product page
+async function init() {
+	if (!productId) {
+		console.error("No product ID found in URL.");
+		return;
+	}
+
+	const product = await fetchProductById(productId);
+	if (product) {
+		displayProduct(product);
+	} else {
+		console.error("Failed to fetch product data.");
+	}
+}
+
+init();
+
+// Listen for cart updates and refresh the cart count
+window.addEventListener("cartUpdated", updateCart);

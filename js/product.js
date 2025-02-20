@@ -36,6 +36,7 @@ function displayProduct(product) {
 	// Selecting size and enabling the button
 	let selectedSize = null;
 	const sizeButtons = document.querySelectorAll(".size-btn");
+	const addToCartButton = document.getElementById("add-to-cart"); // ✅ Select the button after updating innerHTML
 
 	sizeButtons.forEach((button) => {
 		button.addEventListener("click", (event) => {
@@ -50,11 +51,11 @@ function displayProduct(product) {
 			console.log("Selected Size:", selectedSize);
 
 			// Enable the add to cart button
-			document.getElementById("add-to-cart").disabled = false;
+			addToCartButton.disabled = false;
 		});
 	});
 
-	// Handling Add to Cart
+	// ✅ Select the button AFTER innerHTML update
 	addToCartButton.addEventListener("click", function () {
 		if (!selectedSize) {
 			alert("Please select a size before adding to cart.");

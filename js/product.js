@@ -33,36 +33,26 @@ function displayProduct(product) {
         </div>
     `;
 
-	// Selecting size and enabling the button
 	let selectedSize = null;
 	const sizeButtons = document.querySelectorAll(".size-btn");
-	const addToCartButton = document.getElementById("add-to-cart"); // ✅ Select the button after updating innerHTML
-
+	const addToCartButton = document.getElementById("add-to-cart");
 	sizeButtons.forEach((button) => {
 		button.addEventListener("click", (event) => {
-			// Remove 'selected' class from all buttons
 			sizeButtons.forEach((btn) => btn.classList.remove("selected"));
 
-			// Add 'selected' class to the clicked button
 			button.classList.add("selected");
 
-			// Get the selected size value
 			selectedSize = button.querySelector("input").value;
-			console.log("Selected Size:", selectedSize);
 
-			// Enable the add to cart button
 			addToCartButton.disabled = false;
 		});
 	});
 
-	// ✅ Select the button AFTER innerHTML update
 	addToCartButton.addEventListener("click", function () {
 		if (!selectedSize) {
-			alert("Please select a size before adding to cart.");
 			return;
 		}
 
-		// Create cart item object
 		const cartItem = {
 			id: product.id,
 			title: product.title,
@@ -71,23 +61,16 @@ function displayProduct(product) {
 			image: product.image.url,
 		};
 
-		// Get cart from localStorage or create an empty array
 		const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-		// Add new item to cart
 		cart.push(cartItem);
 
-		// Save updated cart back to localStorage
 		localStorage.setItem("cart", JSON.stringify(cart));
 
-		// Update cart count in the header
 		updateCart();
-
-		alert(`${product.title} (Size: ${selectedSize}) added to cart!`);
 	});
 }
 
-// Initialize the product page
 async function init() {
 	if (!productId) {
 		console.error("No product ID found in URL.");
@@ -104,5 +87,4 @@ async function init() {
 
 init();
 
-// Listen for cart updates and refresh the cart count
 window.addEventListener("cartUpdated", updateCart);

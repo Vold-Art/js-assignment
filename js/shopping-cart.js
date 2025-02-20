@@ -1,11 +1,9 @@
 import { updateCart } from "./cart.js";
 
-// Function to get cart items from localStorage
 function getCartItems() {
 	return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-// Function to save cart back to localStorage
 function saveCartItems(cart) {
 	localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -14,7 +12,7 @@ function saveCartItems(cart) {
 function displayCart() {
 	const cartContainer = document.getElementById("cart-container");
 	const cartTotal = document.getElementById("cart-total");
-	cartContainer.innerHTML = ""; // Clear existing content
+	cartContainer.innerHTML = "";
 
 	const cart = getCartItems();
 
@@ -44,22 +42,19 @@ function displayCart() {
 		total += item.price;
 	});
 
-	cartTotal.textContent = total.toFixed(2); // Update total price
+	cartTotal.textContent = total.toFixed(2);
 
-	// Attach remove button event listeners
 	document.querySelectorAll(".remove-btn").forEach((button) => {
 		button.addEventListener("click", removeFromCart);
 	});
 }
 
-// Function to remove item from cart
 function removeFromCart(event) {
 	const index = event.target.getAttribute("data-index");
 	let cart = getCartItems();
-	cart.splice(index, 1); // Remove item from array
-	saveCartItems(cart); // Save updated cart
-	displayCart(); // Re-render cart
+	cart.splice(index, 1);
+	saveCartItems(cart);
+	displayCart();
 }
 
-// Display cart on page load
 displayCart();

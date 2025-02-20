@@ -2,8 +2,8 @@ import { updateCart } from "./cart.js";
 import { fetchProducts, allProducts } from "./api.js";
 
 async function init() {
-	await fetchProducts(displayProducts); // Fetch and display products
-	console.log("Products available:", allProducts); // Check if products are fetched
+	await fetchProducts(displayProducts);
+	console.log("Products available:", allProducts);
 }
 
 init();
@@ -58,12 +58,10 @@ function filterProducts() {
 	displayProducts(filteredProducts);
 }
 
-// Attach filter function to dropdowns
+// Function to filter dropdowns
 document.getElementById("gender").addEventListener("change", filterProducts);
 document.getElementById("size").addEventListener("change", filterProducts);
 
-// Fetch products when page loads
 fetchProducts();
 
-// Listen for cart updates and refresh the cart count
 window.addEventListener("cartUpdated", updateCart);

@@ -1,11 +1,9 @@
 import { updateCart } from "./cart.js";
 
-// Get cart items from localStorage
 function getCartItems() {
 	return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-// Display the order summary
 function displayOrderSummary() {
 	const orderContainer = document.getElementById("cart-items");
 	const orderTotal = document.getElementById("total-price");
@@ -39,15 +37,12 @@ function displayOrderSummary() {
 	orderTotal.textContent = `$${total.toFixed(2)}`;
 }
 
-// Order submission
 function submitOrder(event) {
 	event.preventDefault();
 
-	// Clear cart after successful order
 	localStorage.removeItem("cart");
 
-	// Redirect to confirmation page
-	window.location.href = "../confirmation/confirmation.html";
+	window.location.href = "../confirmation/index.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {

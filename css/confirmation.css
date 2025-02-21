@@ -1,0 +1,28 @@
+@import "styles.css";
+
+h1,
+h2 {
+	display: block;
+	text-align: center;
+	width: 100%;
+	margin: auto;
+}
+
+h1 {
+	padding: 30px;
+}
+
+h2 {
+	font-family: var(--secondary-font);
+	font-size: 3rem;
+	color: var(--secondary-color);
+	padding-top: 50px;
+}
+
+p {
+	font-size: 1.2rem;
+	text-align: center;
+	padding: 30px;
+	max-width: 1000px;
+	margin: auto;
+}

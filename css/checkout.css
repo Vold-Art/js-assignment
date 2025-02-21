@@ -8,7 +8,6 @@ h1 {
 	padding-top: 30px;
 }
 
-/* General container styling */
 .checkout-container {
 	display: flex;
 	flex-direction: row;
@@ -16,7 +15,6 @@ h1 {
 	width: 100%;
 }
 
-/* Cart Section: Holds cart items & summary */
 .cart-summary {
 	display: flex;
 	flex-direction: column;
@@ -26,7 +24,6 @@ h1 {
 	margin-right: 25px;
 }
 
-/* Cart Items */
 .cart-items {
 	display: flex;
 	flex-direction: column;
@@ -48,7 +45,6 @@ h1 {
 	gap: 15px;
 }
 
-/* Cart Summary */
 .cart-total {
 	width: 100%;
 	margin-top: 20px;
@@ -57,34 +53,50 @@ h1 {
 	font-weight: bold;
 }
 
-/* Input Section */
 .input-section {
 	width: 100%;
 	max-width: 500px;
+	height: 420px;
 	background: white;
 	border: 3px solid var(--primary-color);
 	border-radius: 10px;
 	box-shadow: 4px 4px 10px rgba(10, 54, 65, 0.5);
-	margin-left: 25px;
-}
-
-/* Input Fields Layout */
-.input-section {
+	padding: 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 15px;
-	width: 100%;
+	gap: 10px;
+	overflow: hidden;
+	align-content: start;
+	box-sizing: border-box;
 }
 
 .input-section fieldset {
 	border: 2px solid var(--primary-color);
 	border-radius: 5px;
 	background: #f9f9f9;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px 10px;
 	width: 100%;
+	min-width: 0;
+	height: 45px;
+	box-sizing: border-box;
+}
+
+.input-section .first,
+.input-section .sur,
+.input-section .mail,
+.input-section .address,
+.input-section .card {
+	grid-column: span 2;
 }
 
 .input-section legend {
 	font-weight: bold;
+	font-size: 0.9rem;
+	margin-right: 5px;
+	white-space: nowrap;
 }
 
 .input-section input {
@@ -92,9 +104,11 @@ h1 {
 	border: none;
 	border-radius: 5px;
 	font-size: 1rem;
+	background: transparent;
+	outline: none;
+	box-sizing: border-box;
 }
 
-/* Centered Submit Button */
 .submit-button {
 	display: flex;
 	justify-content: center;

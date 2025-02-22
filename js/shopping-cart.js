@@ -49,6 +49,7 @@ function displayCart() {
 	});
 }
 
+// Function to remove an item from the cart
 function removeFromCart(event) {
 	const index = event.target.getAttribute("data-index");
 	let cart = getCartItems();

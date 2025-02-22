@@ -15,6 +15,7 @@ export async function fetchProducts(displayProducts) {
 	}
 }
 
+// Fetch a single product by its ID
 export async function fetchProductById(productId) {
 	try {
 		const response = await fetch(

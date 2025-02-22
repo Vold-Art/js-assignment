@@ -1,9 +1,11 @@
 import { updateCart } from "./cart.js";
 
+// Function to retrieve cart items from localStorage
 function getCartItems() {
 	return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
+// Function to display the order summary
 function displayOrderSummary() {
 	const orderContainer = document.getElementById("cart-items");
 	const orderTotal = document.getElementById("total-price");
@@ -37,6 +39,7 @@ function displayOrderSummary() {
 	orderTotal.textContent = `$${total.toFixed(2)}`;
 }
 
+// Function to handle order submit
 function submitOrder(event) {
 	event.preventDefault();
 

@@ -33,6 +33,7 @@ function displayProduct(product) {
         </div>
     `;
 
+	// Size and Add to Cart buttons
 	let selectedSize = null;
 	const sizeButtons = document.querySelectorAll(".size-btn");
 	const addToCartButton = document.getElementById("add-to-cart");

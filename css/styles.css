@@ -43,8 +43,39 @@ nav {
 	padding: 23.664px 50px 23.664px 50px;
 }
 
+.nav-logo:hover {
+	content: url(../assets/logo/RainyDays_Logo-alt-small.png);
+}
+
 #shopping-cart {
 	color: var(--background-color);
+}
+
+#shopping-cart:hover {
+	color: #f89235;
+}
+
+/* Shopping Cart Counter */
+
+.cart-icon {
+	position: relative;
+	display: inline-block;
+}
+
+#cart-count {
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	background: var(--secondary-color);
+	color: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* Footer */
@@ -73,25 +104,8 @@ ul {
 	color: var(--background-color);
 }
 
-/* Shopping Cart Counter */
-
-.cart-icon {
-	position: relative;
-	display: inline-block;
-}
-
-#cart-count {
-	position: absolute;
-	top: 20px;
-	right: 40px;
-	background: var(--secondary-color);
-	color: white;
-	font-size: 1.2rem;
-	font-weight: bold;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+#facebook:hover,
+#instagram:hover,
+#youtube:hover {
+	color: #f89235;
 }

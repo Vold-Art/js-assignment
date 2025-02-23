@@ -1,5 +1,9 @@
 @import "styles.css";
 
+body {
+	overflow-x: hidden;
+}
+
 .cart-container {
 	display: flex;
 	flex-direction: column;

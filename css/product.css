@@ -1,5 +1,9 @@
 @import "styles.css";
 
+body {
+	overflow-x: hidden;
+}
+
 .product-details {
 	display: flex;
 	justify-content: center;

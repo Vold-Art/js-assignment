@@ -1,5 +1,6 @@
 import { updateCart } from "./cart.js";
 import { fetchProducts, allProducts } from "./api.js";
+import { loadingIndicator } from "./loader.js";
 
 async function init() {
 	await fetchProducts(displayProducts);
@@ -57,3 +58,5 @@ document.getElementById("size").addEventListener("change", filterProducts);
 fetchProducts();
 
 window.addEventListener("cartUpdated", updateCart);
+
+loadingIndicator();

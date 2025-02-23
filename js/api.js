@@ -11,7 +11,7 @@ export async function fetchProducts(displayProducts) {
 			displayProducts(allProducts);
 		}
 	} catch (error) {
-		console.error("Error fetching products:", error);
+		alert("Error fetching products:", error);
 	}
 }
 
@@ -24,7 +24,7 @@ export async function fetchProductById(productId) {
 		const jsonData = await response.json();
 		return jsonData.data;
 	} catch (error) {
-		console.error("Error fetching product:", error);
+		alert("Error fetching product:", error);
 		return null;
 	}
 }

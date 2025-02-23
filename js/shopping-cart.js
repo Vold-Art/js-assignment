@@ -1,4 +1,4 @@
-import { updateCart } from "./cart.js";
+import { loadingIndicator } from "./loader.js";
 
 function getCartItems() {
 	return JSON.parse(localStorage.getItem("cart")) || [];
@@ -59,3 +59,5 @@ function removeFromCart(event) {
 }
 
 displayCart();
+
+loadingIndicator();

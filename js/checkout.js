@@ -1,4 +1,4 @@
-import { updateCart } from "./cart.js";
+import { loadingIndicator } from "./loader.js";
 
 // Function to retrieve cart items from localStorage
 function getCartItems() {
@@ -56,3 +56,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		checkoutButton.addEventListener("click", submitOrder);
 	}
 });
+
+loadingIndicator();

@@ -1,5 +1,6 @@
 import { updateCart } from "./cart.js";
 import { fetchProductById } from "./api.js";
+import { loadingIndicator } from "./loader.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
@@ -73,7 +74,7 @@ function displayProduct(product) {
 
 async function init() {
 	if (!productId) {
-		console.error("No product ID found in URL.");
+		alert("No product ID found in URL.");
 		return;
 	}
 
@@ -81,8 +82,10 @@ async function init() {
 	if (product) {
 		displayProduct(product);
 	} else {
-		console.error("Failed to fetch product data.");
+		alert("Failed to fetch product data.");
 	}
 }
 
 init();
+
+loadingIndicator();

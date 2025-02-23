@@ -3,7 +3,6 @@ import { fetchProducts, allProducts } from "./api.js";
 
 async function init() {
 	await fetchProducts(displayProducts);
-	console.log("Products available:", allProducts);
 }
 
 init();
@@ -37,9 +36,6 @@ function filterProducts() {
 	const genderFilter = document.getElementById("gender").value;
 	const sizeFilter = document.getElementById("size").value;
 
-	console.log("Selected Gender:", genderFilter);
-	console.log("Selected Size:", sizeFilter);
-
 	const filteredProducts = allProducts.filter((product) => {
 		const matchesGender =
 			genderFilter === "all" ||
@@ -48,13 +44,9 @@ function filterProducts() {
 			sizeFilter === "all" ||
 			(Array.isArray(product.sizes) && product.sizes.includes(sizeFilter));
 
-		console.log(
-			`Checking: ${product.title}, Gender: ${product.gender}, Sizes: ${product.sizes}`
-		);
 		return matchesGender && matchesSize;
 	});
 
-	console.log("Filtered Products:", filteredProducts);
 	displayProducts(filteredProducts);
 }
 
